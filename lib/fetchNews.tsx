@@ -1,8 +1,8 @@
 import { gql } from "graphql-request";
 import SortNewsByImages from "./SortNewsByImages";
 
-const fetchNews = async (category?: Category | string, keywords?: string, isDynamic?: boolean, country?: string | "US IN") => {
-    const query = gql`query MyQuery( 
+const fetchNews = async (category?: Category | string, country?: string | "US IN", keywords?: string, isDynamic?: boolean) => {
+  const query = gql`query MyQuery( 
         $access_key: String! 
         $categories: String! 
         $keywords: String
@@ -29,30 +29,33 @@ const fetchNews = async (category?: Category | string, keywords?: string, isDyna
         }
       }
     }`;
-    const res = await fetch('https://alquizar.stepzen.net/api/hissing-quokka/__graphql', {
-        method: 'POST',
-        cache: isDynamic ? "no-cache" : "default", next: isDynamic ? { revalidate: 0 } : { revalidate: 20 }, headers: {
-            "Content-Type": "application/json",
-            Authorization: `ApiKey ${process.env.STEPZEN_API_KEY}`
-        },
-        body: JSON.stringify(
-            {
-                query,
-                variables: {
-                    access_key: process.env.MEDIASTACK_API_KEY,
-                    categories: category,
-                    keywords: keywords
-                }
-            }
-        )
-    });
-    // console.log("new data", category, keywords);
+  const res = await fetch('https://alquizar.stepzen.net/api/hissing-quokka/__graphql', {
+    method: 'POST',
+    cache: isDynamic ? "no-cache" : "default", next: isDynamic ? { revalidate: 0 } : { revalidate: 20 }, headers: {
+      "Content-Type": "application/json",
+      Authorization: `ApiKey ${process.env.STEPZEN_API_KEY}`
+    },
+    body: JSON.stringify(
+      {
+        query,
+        variables: {
+          access_key: process.env.MEDIASTACK_API_KEY,
+          categories: category,
+          keywords: keywords,
+          countries: country
+        }
+      }
+    )
+  });
+  console.log("new data", category, keywords, country);
 
-    const newsResponse = await res.json();
+  const newsResponse = await res.json();
 
-    const news = SortNewsByImages(newsResponse.data.myQuery);
+  const news = SortNewsByImages(newsResponse.data.myQuery);
 
-    return news;
+  console.log(news)
+
+  return news;
 }
 export default fetchNews;
 
