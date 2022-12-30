@@ -47,13 +47,13 @@ const fetchNews = async (category?: Category | string, country?: string | "US IN
       }
     )
   });
-  console.log("new data", category, keywords, country);
+  // console.log("new data", category, keywords, country);
 
   const newsResponse = await res.json();
 
   const news = SortNewsByImages(newsResponse.data.myQuery);
 
-  console.log(news)
+  // console.log(news)
 
   return news;
 }
