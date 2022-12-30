@@ -40,7 +40,7 @@ function Header() {
                         </div>}
                     </button>
                 </BrowserView> */}
-                <Link href="/" prefetch={false}>
+                <Link href="/" prefetch={false} legacyBehavior>
                     <h1 className='font-serif text-4xl text-center underline decoration-6 decoration-orange-400'>GV NEWS</h1>
                 </Link>
                 <div className='flex items-center justify-end space-x-2'>
@@ -55,7 +55,7 @@ function Header() {
                                 setCty(-1)
                                 setCtyMenu(false)
 
-                            }} className='text-center p-2'>
+                            }} className='text-center p-2' legacyBehavior>
                                 <span className="hover:font-bold transition-transform duration-200 ease-out">ALL</span>
                             </Link>
                             {countries.map((country, i) =>
@@ -65,7 +65,7 @@ function Header() {
                                     setCtyMenu(false)
 
                                 }}>
-                                    <Link href={`newslist/${countries[i].code}`}>
+                                    <Link href={`newslist/${countries[i].code}`} legacyBehavior>
                                         <span className="hover:font-bold transition-transform duration-200 ease-out">{country.emoji} {country.name}</span>
                                     </Link>
                                 </span>

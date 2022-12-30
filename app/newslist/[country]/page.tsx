@@ -8,7 +8,7 @@ type Props = {
 }
 
 async function NewsCategory({ params: { country } }: Props) {
-    const news: NewsResponse = await fetchNews(categories.join(","), country);
+    const news: NewsResponse = await fetchNews(categories.join(","), null, true, country);
     return (
         <div>
             <h1 className="headerTitle">{country}</h1>
