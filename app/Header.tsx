@@ -46,7 +46,7 @@ function Header() {
                 <div className='flex items-center justify-end space-x-2'>
                     <DarkModeButton />
                     {/* <button className='hidden md:inline bg-slate-900 text-white px-4 lg:px-8 py-2 lg:py-4 rounded-full dark:bg-slate-800'>Subscribe Now</button> */}
-                    <button className="flex bg-slate-900 text-white px-4 lg:px-8 py-2 lg:py-4 rounded-xl dark:bg-slate-800" type="button" onClick={() => setCtyMenu(!ctyMenu)}>
+                    <button className="flex bg-white px-4 lg:px-8 py-2 lg:py-4 rounded-xl dark:bg-slate-800" type="button" onClick={() => setCtyMenu(!ctyMenu)}>
                         <span className='text-center'>
                             {cty != -1 ? `${countries[cty].emoji} ${countries[cty].name}` : "ALL"}
                         </span><ChevronDownIcon className='h-5 w-5 ml-3 mt-1' />
