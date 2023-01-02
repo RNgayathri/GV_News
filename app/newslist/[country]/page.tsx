@@ -19,8 +19,8 @@ async function NewsCategory({ params: { country } }: Props) {
 
 export default NewsCategory
 
-export async function generateStaticParams() {
-    return countries.map(country => ({
-        country: country.code
-    }))
-}
+// export async function generateStaticParams() {
+//     return countries.map(country => ({
+//         country: country.code
+//     }))
+// }
