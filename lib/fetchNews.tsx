@@ -2,7 +2,8 @@ import { gql } from "graphql-request";
 import SortNewsByImages from "./SortNewsByImages";
 
 const fetchNews = async (category?: Category | string, keywords?: string | null, isDynamic?: boolean, country?: string | "US IN") => {
-  const query = gql`query MyQuery( 
+  const query = gql
+    `query MyQuery( 
         $access_key: String! 
         $categories: String! 
         $keywords: String
