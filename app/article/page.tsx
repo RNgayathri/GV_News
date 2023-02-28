@@ -5,9 +5,9 @@ type Props = {
     searchParams?: Article;
 }
 
-async function ArticlePage({ searchParams }: Props) {
+function ArticlePage({ searchParams }: Props) {
     console.log(searchParams)
-    if (searchParams && Object.entries(searchParams).length == 0 || !searchParams) {
+    if ((searchParams && Object.entries(searchParams).length === 0) || !searchParams) {
         return notFound();
     }
     const article: Article = searchParams;
