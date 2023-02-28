@@ -24,7 +24,7 @@ function ArticlePage({ searchParams }: Props) {
                             By: {searchParams.author}
                         </h2>
                         <h2 className="font-bold pl-4">Source: {searchParams.source}</h2>
-                        <p className="pl-4"><LiveTimeStamp time={searchParams.published_at} /></p>
+                        <div className="pl-4"><LiveTimeStamp time={searchParams.published_at} /></div>
                     </div>
                     <p className="pt-4">{searchParams.description}</p>
                 </div>
