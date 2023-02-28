@@ -1,13 +1,14 @@
 import { countries } from "../../CountryConstants";
+import { categories } from "../../../constants"
 import fetchNews from "../../../lib/fetchNews";
 import NewsList from "../../NewsList";
 
 type Props = {
-    params?: { country: string };
+    params: { country: string };
 }
 
 async function NewsCategory({ params: { country } }: Props) {
-    const news: NewsResponse = await fetchNews(country);
+    const news: NewsResponse = await fetchNews(categories.join(","), null, true, country);
     return (
         <div>
             <h1 className="headerTitle">{country}</h1>

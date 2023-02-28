@@ -3,7 +3,7 @@ import fetchNews from "../../../lib/fetchNews";
 import NewsList from "../../NewsList";
 
 type Props = {
-    params?: { category: Category };
+    params: { category: Category };
 }
 
 async function NewsCategory({ params: { category } }: Props) {

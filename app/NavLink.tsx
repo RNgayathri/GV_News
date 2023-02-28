@@ -9,8 +9,8 @@ type Props = {
 function NavLink({ category, isActive, setMenu }: Props) {
     return (
         <div onClick={() => setMenu(false)}>
-            <Link href={`/news/${category}`} className={`navLink ${isActive && 'underline decoration-orange-400 underline-offset-4'}`}>
-                {category}
+            <Link href={`/news/${category}`} className={`navLink ${isActive && 'underline decoration-orange-400 underline-offset-4'}`} legacyBehavior>
+                {category.toUpperCase()}
             </Link>
         </div>
     )
