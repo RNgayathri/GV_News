@@ -5,7 +5,7 @@ type Props = {
     searchParams?: Article;
 }
 
-function ArticlePage({ searchParams }: Props) {
+async function ArticlePage({ searchParams }: Props) {
     console.log(searchParams)
     if (searchParams && Object.entries(searchParams).length == 0 || !searchParams) {
         return notFound();
@@ -24,7 +24,7 @@ function ArticlePage({ searchParams }: Props) {
                             By: {article.author}
                         </h2>
                         <h2 className="font-bold pl-4">Source: {article.source}</h2>
-                        {/* <div className="pl-4"><LiveTimeStamp time={article.published_at} /></div> */}
+                        <div className="pl-4"><LiveTimeStamp time={article.published_at} /></div>
                     </div>
                     <p className="pt-4">{article.description}</p>
                 </div>
