@@ -6,6 +6,7 @@ type Props = {
 }
 
 function ArticlePage({ searchParams }: Props) {
+    console.log(searchParams)
     if (!searchParams) {
         return notFound();
     }
