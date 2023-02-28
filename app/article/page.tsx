@@ -1,3 +1,4 @@
+'use client'
 import { notFound } from "next/navigation"
 import LiveTimeStamp from "../LiveTimeStamp";
 
@@ -6,7 +7,7 @@ type Props = {
 }
 
 function ArticlePage({ searchParams }: Props) {
-    if (searchParams && Object.entries(searchParams).length === 0 || !searchParams) {
+    if (!searchParams || searchParams && Object.entries(searchParams).length == 0) {
         return notFound();
     }
     const article: Article = searchParams;
