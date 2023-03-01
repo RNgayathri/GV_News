@@ -1,12 +1,13 @@
 import { notFound } from "next/navigation"
 import LiveTimeStamp from "../LiveTimeStamp";
 
+export const dynamic = 'force-dynamic';
+
 type Props = {
     searchParams?: Article;
 }
 
 function ArticlePage({ searchParams }: Props) {
-    alert(searchParams)
     if ((searchParams && Object.entries(searchParams).length === 0) || !searchParams) {
         return notFound();
     }
