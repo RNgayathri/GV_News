@@ -1,7 +1,6 @@
+export const dynamic = 'force-dynamic';
 import { notFound } from "next/navigation"
 import LiveTimeStamp from "../LiveTimeStamp";
-
-export const dynamic = 'force-dynamic';
 
 type Props = {
     searchParams?: Article;
